@@ -1,61 +1,75 @@
-#  Porter Logistics Data Analysis Project  
+# 📦 Porter – Logistics & Operational Performance Analysis
 
-##  Overview  
-This project analyzes a **real-world logistics dataset** from Porter to extract actionable business insights 
-It combines **Data cleaning and preprocessing**,**Exploratory Data Analysis (EDA)**,**Outlier handling**, and **feature engineering** techniques to understand order behavior, optimize delivery operations, and improve business performance.  
+## 📌  Overview
+This project analyzes a real world logistic sector dataset from Porter to understand **demand patterns, revenue drivers and operational efficiency**.  
+The analysis focuses on identifying peak-hour behavior, high-performing markets and protocols, customer ordering patterns, and capacity risks, and translates findings into actionable business recommendations.
+
+---
+## 📊 Dataset Overview
+- **Total Records:** ~197,000+ orders  
+- **Key Columns:**
+  - Market ID  
+  - Order Protocol  
+  -  Primary food Category  
+  - Order Volume  
+  - Revenue (Subtotal)  
+  - Order Date & Time  
+  - Partner Availability Metrics  
+
+## 🎯 Objectives
+- Identify high-impact markets, protocols, and food categories
+- Analyze peak-hour and weekend demand patterns
+- Evaluate revenue concentration and customer behavior
+- Provide data-driven recommendations to improve operational efficiency & delivery performance
 
 ---
 
-## 🧾 Dataset Description  
-The dataset consists of **197,528 records** and multiple features related to **orders, delivery partners, market IDs, revenue, and order protocols**.  
-Each record represents an order placed through Porter’s logistics platform, including both categorical and numerical attributes.  
 
-### Key feature groups:  
-- **Order Information:** order size, volume, protocol type, market ID  
-- **Delivery Details:** delivery time, order date & time  
-- **Revenue Metrics:** revenue per order and total value  
-- **Store Details:** primary category, item count, and order pattern  
+### 📊 Key Insighs
+**Demand Concentration:**
+- **~71% of total orders** and **~73% of total revenue** are generating o from Market IDs 1,2 and 4  making them critical operational hubs.
 
----
+**Protocol Performance:**
+- Protocols 1, 3, and 5 account for over **75% of total orders and nearly 80% of revenue**, indicating strong alignment between customer preference and revenue contribution.
+  
+**Time-Based Trends:**
+- Peak order hours: **12am – 5am**
+- Peak hours contribute ~70% of total revenue
+- Order volume and revenue increase by ~5% on weekends
+- A sudden 11% drop in orders during the 3rd week indicates potential operational or external disruptions.
+  
+**Category Concentration:**
+- Top **20% food categories** generate **75% of total orders** & also contributing **75% of revenue**, confirming a Pareto effect.
 
-## 🎯 Objectives  
-1. Perform **comprehensive data analysis** to uncover operational and business insights.  
-2. Identify **factors influencing delivery time, order volume, and revenue**.  
-3. Derive **data-driven business recommendations** for logistics optimization.  
+**Customer Behavior:**
+- Order size of ~86%  customers are below or equal to 5 , highlighting a large base of low-frequency users and an opportunity to improve retention.
 
----
-
-## 🔍 Key Insights  
-After performing detailed EDA, several important findings emerged:  
-
-- 📅 **Order volume and revenue (₹90+ lakh)** are highest during **weekends**.  
-- 🏪 **Top 10 store categories** account for **55% of total orders**.  
-- 🔢 **Order Protocols 1, 3, and 5** handle **~75% of all orders** and revenue.  
-- 📦 **~95% of orders** have an order size of **10 or less**.  
-- 🕒 Most orders are placed between **12 PM – 4 PM**.  
-- 📉 The **3rd week of each month** sees lower order volume than others.  
-- ⚡ **Protocol 7** has the **fastest average delivery time**, while **Protocol 6** is the slowest.  
- 
+**Operational Efficiency (Derived KPIs):**
+- Partner utilisation **exceeds 90%** during peak hours
+- Orders per partner remain moderate (1–1.5), indicating that capacity shortage, not excessive demand, is the main constraint.
+- High utilisation reduces buffer capacity and increases the risk of delivery delays.
 
 ---
+## 📈 Visualizations
 
-## 🧠 Business Recommendations  
- 
-**Resource Planning:** 
-- Increase on-shift partner count during weekends and 12 PM–4 PM to meet peak demand 
-without compromising delivery speed.
-- Run promotional campaigns during the 3rd week of the month to balance demand cycles.
+![peak order hour rend](image/order_volume_in_hour.png)   
+  ![distribution of food category](image/food_category_distribution.png) 
+  
+### 💡 Business Recommendations
+**Peak-Hour Capacity Optimization**
+- Introduce a **5–10% increase** in on-shift partners during peak hours (12–4 PM) to **reduce utilisation** to an optimal **80–85%**, improving delivery reliability without overstaffing.
+  
+**Focus on High-Impact Markets & Protocols**
+- Prioritize operational planning, partner allocation, and promotions in Markets 1, 2, and 4 and strengthen Protocols 1, 3, and 5, which drive the majority of revenue.
 
-**Category Strategy:** 
-- Strengthen relationships with Top 10 high-volume categories, introduce loyalty or bundle 
-- offers to retain this core segment. 
+  
+**Category-Level Optimization**
+- Focus marketing and operational efficiency efforts on top-performing food categories, while reassessing low-performing ones to reduce complexity.
 
-**Protocol Optimization:** 
-- Analyze operational processes behind Protocol 7’s fast deliveries and standardize them across other protocols. 
-- Investigate delays in Protocol 6 and redesign workflows or partner routing logic.
-
-**Market Expansion:** 
-- Benchmark performance of Markets 2, 4, and 1, replicate their strategies in lower-performing markets.  
+**Monitoring & Risk Detection**
+Set up early-warning indicators for:
+- Sudden weekly order drops
+- Partner utilisation exceeding 90%, signaling capacity constraints
 
 ---
 
@@ -71,33 +85,45 @@ without compromising delivery speed.
 ---
 
 ## 📊 Project Workflow  
-1. **Data Understanding & Cleaning** — Handle missing values, duplicates, and outliers.  
-2. **Exploratory Data Analysis (EDA)** — Visualize trends, correlations, and patterns.  
-3. **Feature Engineering** — Encode categorical features, derive temporal patterns.  
-4. **Outlier handling** — Use boxplot to visualize and use cap and floor methode to handle it   
+1. **Data wrangling** — Handle missing values, duplicates and outliers.  
+2. **Exploratory Data Analysis (EDA)** — Visualize trends, correlations and patterns.  
+3. **Feature Engineering** — Derived partner utilisation & order per partner metrix
+4. **Detailed KPI & performance Analysis** —Identify demand concentration, peak-hour risks and operational inefficiency
 5. **Insights & Business Recommendations** — Summarize findings and propose improvements.  
 
 ---
+## 📂 Repository Structure
+```text
+📁 porter-logistics-analysis
+│
+├── 📓 porter_analysis.ipynb
+├── 📄 README.md
+├── 📁 visuals
+│   ├── market_contribution.png
+│   ├── protocol_revenue_pareto.png
+│   ├── hourly_demand.png
+│
+└── 📄 requirements.txt
+```
 
-## 📈 Results  
-The analysis provided a deep understanding of **operational efficiency, customer behavior, and performance bottlenecks**.  
+
  
 
 ---
 
-## 💼 About This Project  
-This project demonstrates practical **data analytics and problem-solving skills** using real-world logistics data.  
-It showcases the ability to:  
-- Work with large datasets (197K+ rows)  
-- Apply advanced EDA and Outlier handling  
-- Translate data insights into **business-impacting recommendations**
+## Executive Summary
+
+This project demonstrates my ability to convert raw logistic & operational data into actionable business insights.
+By identifying demand concentration, peak revenue periods, and protocol efficiencies, the analysis supports strategic decisions related to **capacity planning, operational efficiency and revenue growth**.
 
 ---
 
 ## 🧑‍💻 Author  
-**Manish Nandi** 
-**-Data Analyst**
+**Manish Nandi** | **Data Analyst**
 
- Connect with me on  
+⭐ If you find this project insightful, feel free to connect or reach out!
+
  [LinkedIn](www.linkedin.com/in/manish-nandi-52a69432a)  |
 [Gmail](mannsqurz@gmail.com)  
+
+---
